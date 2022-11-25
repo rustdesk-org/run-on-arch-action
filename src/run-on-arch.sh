@@ -128,6 +128,9 @@ run_container () {
     -v "${EVENT_DIR}:${EVENT_DIR}" \
     -v "${GITHUB_WORKSPACE}:${GITHUB_WORKSPACE}" \
     -v "${ACTION_DIR}:${ACTION_DIR}" \
+    --privileged \
+    --cap-add=SYS_ADMIN \
+    --device /dev/fuse \
     --tty \
     ${DOCKER_RUN_ARGS[@]} \
     "${CONTAINER_NAME}:latest" \
