@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+sudo docker system prune -a --volumes -f
+
 # Args
 DOCKERFILE=$1
 CONTAINER_NAME=$2
@@ -146,3 +148,5 @@ build_container
 
 echo "::group::Run container"
 run_container
+
+sudo docker system prune -a --volumes -f
